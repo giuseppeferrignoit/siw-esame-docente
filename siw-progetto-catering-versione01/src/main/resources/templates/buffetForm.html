@@ -20,24 +20,21 @@
 	    		<p 	th:each="err : ${#fields.globalErrors()}" 
 	  				th:text="${err}">ERRORE GENERICO</p> 
 	  		</div>
-	
 			<div>
 				<span>Nome: </span>
 				<span><input type="text" th:field="*{nome}"/></span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 			</div>
-			
 			<div>
 				<span>Descrizione: </span>
 				<span><input type="text" th:field="*{descrizione}"/></span>		
 				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
-			
 			<div>
 				<button type="submit">Conferma nuovo buffet</button>
 			</div> 
-			
 		</form>
+		
 	</div>
 	
 	<div class="sezione">

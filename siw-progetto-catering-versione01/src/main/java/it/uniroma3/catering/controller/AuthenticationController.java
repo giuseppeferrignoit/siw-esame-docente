@@ -50,30 +50,30 @@ public class AuthenticationController {
     public String defaultAfterLogin(Model model) {
         
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credenziali credentials = credentialsService.getCredentials(userDetails.getUsername());
-    	if (credentials.getRole().equals(Credenziali.ADMIN_ROLE)) {
+    	Credenziali credenziali = credentialsService.getCredentials(userDetails.getUsername());
+    	if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
             return "admin/home";
         }
         return "home";
     }
 	
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute("user") Utente user,
+    public String registerUser(@ModelAttribute("user") Utente utente,
                  BindingResult userBindingResult,
-                 @ModelAttribute("credentials") Credenziali credentials,
+                 @ModelAttribute("credenziali") Credenziali credenziali,
                  BindingResult credentialsBindingResult,
                  Model model) {
 
 			        // validate user and credentials fields
-			        this.userValidator.validate(user, userBindingResult);
-			        this.credentialsValidator.validate(credentials, credentialsBindingResult);
+			        this.userValidator.validate(utente, userBindingResult);
+			        this.credentialsValidator.validate(credenziali, credentialsBindingResult);
 			
 			        // if neither of them had invalid contents, store the User and the Credentials into the DB
 			        if(!userBindingResult.hasErrors() && ! credentialsBindingResult.hasErrors()) {
 			            // set the user and store the credentials;
 			            // this also stores the User, thanks to Cascade.ALL policy
-			            credentials.setUser(user);
-			            credentialsService.saveCredentials(credentials);
+			            credenziali.setUser(utente);
+			            credentialsService.saveCredentials(credenziali);
 			            return "registrationSuccessful";
 			        }
 			        return "registerUser";

@@ -35,14 +35,16 @@
 	<div th:if="${!piattiAssenti.empty}">Vuoi aggiungere un piatto al buffet?</div>
 		<ul>
 			<li th:each="piatto: ${piattiAssenti}">
-				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
-				<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + '/' + ${piatto.id}}">Aggiungi al buffet</a>
+				<p class="desc">
+					<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
+					<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + '/' + ${piatto.id}}"><strong class="conferma">Aggiungi al buffet</strong></a>
+				</p>
 			</li>	   	
 		</ul>
 	</div>
 	
 	<div class="sezione">
-		<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}">CONFERMA</a>
+		<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}"><strong class="conferma">CONFERMA</strong></a>
 	</div>
 	
 	<div class="sezione">

@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Credenziali;
 import it.uniroma3.catering.repository.CredentialsRepository;
 
@@ -39,4 +40,9 @@ public class CredentialsService {
         credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
         return this.credentialsRepository.save(credentials);
     }
+    
+ // Metodo che risponde ad una validazione del Validator
+ 	public boolean alreadyExists(Credenziali credenziali) {
+ 		return credentialsRepository.existsByUsername(credenziali.getUsername());	
+ 	}
 }

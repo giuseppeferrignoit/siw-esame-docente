@@ -51,7 +51,7 @@ public class PiattoService {
 	
 	// Metodo che risponde ad una validazione del Validator
 	public boolean alreadyExists(Piatto piatto) {
-		return piattoRepository.existsByNomeAndDescrizione(piatto.getNome(), piatto.getDescrizione());
+		return piattoRepository.existsByNome(piatto.getNome());
 	}
 	
 	public List<Piatto> findPiattiNotInBuffet(Buffet buffet) {

@@ -17,11 +17,5 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
 	
 	public List<Buffet> findAllByChef(Chef chef);
 
-	public boolean existsByNome(String nome);
-	
-	/*
-	 * Possiamo inserire, in aggiunta ai metodi dell'interfaccia, 
-	 * delle query che servono all'applicazione
-	*/
-	public boolean existsByNomeAndDescrizione(String nome, String descrizione);
+	public boolean existsByNomeAndDescrizione(String nome, String descrizione);	
 }

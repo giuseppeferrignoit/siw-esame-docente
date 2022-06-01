@@ -8,6 +8,4 @@ public interface PiattoRepository extends CrudRepository<Piatto, Long> {
 	
 	boolean existsByNome(String nome);
 	
-	public boolean existsByNomeAndDescrizione(String nome, String descrizione);
-
 }

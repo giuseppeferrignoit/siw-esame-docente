@@ -14,10 +14,10 @@
 		</header>
 	
 		<div class="sezione">
-				<span >Nome piatto: </span>
-				<span th:text="${piatto.nome}">Nome generico</span>
-				<span>  -  Descrizione piatto: </span>
-				<span  th:text="${piatto.descrizione}">Descrizione generica</span>
+			<span ><strong>Nome piatto: </strong></span>
+			<span th:text="${piatto.nome}">Nome generico</span>
+			<span><strong>  -  Descrizione piatto: </strong></span>
+			<span  th:text="${piatto.descrizione}">Descrizione generica</span>
 		</div>
 		
 		<div class="sezione">
@@ -31,7 +31,7 @@
 						   	</span>
 						   	<span>
 								<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
-									'/removeIngrediente' +'/' + ${ingrediente.id}}">ELIMINA</a> 
+									'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
 						   	</span>
 						</p>
 					</li>	
@@ -41,7 +41,7 @@
 		
 		<div class="sezione">
 			<p >
-				Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi 
+				Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi: 
 				<ul>
 					<li th:each="ingrediente: ${ingredientiAssenti}">
 						<p class="desc">
@@ -49,18 +49,18 @@
 							   th:text="${ingrediente.nome}">
 							   Ingrediente</a>
 							<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/' + ${ingrediente.id}}">
-								Aggiungi al piatto</a>
+								<strong class="conferma">Aggiungi al piatto</strong></a>
 						</p>
 					</li>	   	
 				</ul>
 			<p>
 				<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/nuovoIngrediente'}">
-								Crea un nuovo ingrediente</a>
+								<strong class="conferma">Crea un nuovo ingrediente</strong></a>
 			</p>
 		</div>
 	
 		<div class="sezione">
-			<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">CONFERMA</a>
+			<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"><strong class="conferma">CONFERMA</strong></a>
 		</div>
 		
 		<div class="sezione">

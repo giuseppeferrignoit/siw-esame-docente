@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Credenziali;
 import it.uniroma3.catering.model.Utente;
 import it.uniroma3.catering.service.CredentialsService;
@@ -42,6 +43,11 @@ public class CredentialsValidator implements Validator {
             errors.rejectValue("password", "required");
         else if (password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH)
             errors.rejectValue("password", "size");
+        
+        if(this.credentialsService.alreadyExists((Credenziali)o)) {
+			// si rejecta la validazione registrando un codice di errore
+			errors.reject("credenziali.duplicato"); 
+		}
     }
 
     @Override

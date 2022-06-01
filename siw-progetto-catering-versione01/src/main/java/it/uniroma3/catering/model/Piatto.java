@@ -68,6 +68,7 @@ public class Piatto {
 	
 	public void removeIngrediente(Ingrediente ingrediente) {
 		this.getIngredienti().remove(ingrediente);
+		ingrediente.getPiatti().remove(this);
 	}
 
 	public String getNome() {

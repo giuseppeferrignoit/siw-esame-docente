@@ -4,12 +4,12 @@
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
 		<title>Dettagli piatto</title>
-		<link rel="stylesheet" href="../../dettagli.css"/>    
+		<link rel="stylesheet" href="/dettagli.css"/>    
 	</head> 
 
 <body>
 	<header> 
-		<div id="titolo"><strong class="titolo"> Dettagli piatto</strong></div>
+		<div id="titolo"><strong class="titolo"> Dettagli piatto con ingredienti</strong></div>
 	</header>
 	
 	<div class="sezione">
@@ -28,14 +28,39 @@
 							<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
 					   		th:text="${ingrediente.nome}">Ingrediente</a>
 					   	</span>
+					   	
 					   	<span>
 							<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
-								'/removeIngrediente' +'/' + ${ingrediente.id}}">ELIMINA</a> 
+								'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
 					   	</span>
 					</p>
 				</li>	   	
 			</ul>
 		</p>
+	</div>
+	
+	<div class="sezione">
+		<p >
+			Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi: 
+			<ul>
+				<li th:each="ingrediente: ${ingredientiAssenti}">
+					<p class="desc">
+						<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+						   th:text="${ingrediente.nome}">
+						   Ingrediente</a>
+						<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/' + ${ingrediente.id}}">
+							<strong class="conferma">Aggiungi al piatto</strong></a>
+					</p>
+				</li>	   	
+			</ul>
+		<p>
+			<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/nuovoIngrediente'}">
+							<strong class="conferma">Crea un nuovo ingrediente</strong></a>
+		</p>
+	</div>
+
+	<div class="sezione">
+		<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"><strong class="conferma">CONFERMA</strong></a>
 	</div>
 	
 	<div class="sezione">
