@@ -3,7 +3,7 @@
 
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
-		<title>Elenco chef</title>
+		<title>Elenco chef per utenti</title>
 		<link rel="stylesheet" href="../elenchi.css"/>  
 	</head> 
 	
@@ -18,12 +18,9 @@
 				<li th:each="chef: ${chefs}">
 					<p class="desc">
 						<span>
-							<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}"
+							<a href="chefUtente.html" th:href="@{'/chefUtente' + '/' + ${chef.id}}"
 					   		th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
 					   	</span>
-						<span>
-							<a href="#" th:href="@{'/deleteChef' +'/' + ${chef.id}}"><strong class="elimina">ELIMINA</strong></a> 
-						</span>
 					</p>
 				</li>	   	
 			</ul>

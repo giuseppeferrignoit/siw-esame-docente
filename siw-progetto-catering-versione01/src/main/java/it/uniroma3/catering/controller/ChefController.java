@@ -56,7 +56,7 @@ public class ChefController {
 			model.addAttribute("chef", chef);
 			
 			// Ogni metodo ritorna la stringa col nome della vista successiva
-			// se NON ci sono errori si va alla form di visualizzazione dati inseriti
+			// se NON ci sono errori si va alla pagina di visualizzazione dati inseriti
 			return "chef.html"; 
 		}
 		else {
@@ -90,17 +90,35 @@ public class ChefController {
 		// id è una variabile associata al path
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef", chef);
-		// ritorna la form con i dati dell'entità richiesta
+		// ritorna la pagina con i dati dell'entità richiesta
 		return "chef.html";
 	}
 	
-	// richiede tutti gli chefs, non c'è id
+	// richiede un singolo chef tramite id per l'utente semplice
+		@GetMapping("/chefUtente/{id}")
+		public String getChefUtente(@PathVariable("id")Long id, Model model) {
+			// id è una variabile associata al path
+			Chef chef = chefService.findById(id);
+			model.addAttribute("chef", chef);
+			// ritorna la pagina con i dati dell'entità richiesta
+			return "chefUtente.html";
+		}
+	
+	// richiede tutti gli chef, non c'è id
 	@GetMapping("/chefs")
 	public String getChefs(Model model) {
 		List<Chef> chefs = chefService.findAll();
 		model.addAttribute("chefs", chefs);
 		return "chefs.html";
 	}
+	
+	// richiede tutti gli chef per l'utente semplice, non c'è id
+		@GetMapping("/chefsUtente")
+		public String getChefsUtente(Model model) {
+			List<Chef> chefs = chefService.findAll();
+			model.addAttribute("chefs", chefs);
+			return "chefsUtente.html";
+		}
 	
 	@GetMapping("/chefForm")
 	public String chefForm(Model model) {
@@ -115,4 +133,12 @@ public class ChefController {
 		model.addAttribute("buffets", buffetService.findAllByChef(chef));
 		return "buffets.html";
 	}
+	
+	//richiede tutti i buffet dello chef passato nel path per utenti semplici
+		@GetMapping("/chefUtente/{id}/buffetsUtente")
+		public String getBuffetUtente(@Valid @PathVariable("id") Long id, Model model) {
+			Chef chef = chefService.findById(id);
+			model.addAttribute("buffets", buffetService.findAllByChef(chef));
+			return "buffetsUtente.html";
+		}
 }

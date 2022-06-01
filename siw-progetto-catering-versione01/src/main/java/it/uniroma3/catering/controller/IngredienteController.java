@@ -56,7 +56,7 @@ public class IngredienteController {
 			this.ingredienteService.save(ingrediente); // salvo un oggetto Ingrediente
 			model.addAttribute("ingrediente", ingrediente);
 			// Ogni metodo ritorna la stringa col nome della vista successiva
-			// se NON ci sono errori si va alla form di visualizzazione dati inseriti
+			// se NON ci sono errori si va alla pagina di visualizzazione dati inseriti
 			return "ingrediente.html"; 
 		}
 		else {
@@ -81,7 +81,7 @@ public class IngredienteController {
 			this.piattoService.addIngrediente(piatto, ingrediente);
 			model.addAttribute("piatto", piatto);
 			// Ogni metodo ritorna la stringa col nome della vista successiva
-			// se NON ci sono errori si va alla form di visualizzazione dati inseriti
+			// se NON ci sono errori si va alla pagina di visualizzazione dati inseriti
 			return "addIngredientiToPiatto.html"; 
 		}
 		else {
@@ -115,7 +115,7 @@ public class IngredienteController {
 		// id è una variabile associata al path
 		Ingrediente ingrediente = ingredienteService.findById(id);
 		model.addAttribute("ingrediente", ingrediente);
-		// ritorna la form con i dati dell'entità richiesta
+		// ritorna la pagina con i dati dell'entità richiesta
 		return "ingrediente.html";
 	}
 	
@@ -126,6 +126,14 @@ public class IngredienteController {
 		model.addAttribute("ingredienti", ingredienti);
 		return "ingredienti.html";
 	}
+	
+	// richiede tutti gli ingredienti per utenti semplici, non c'è id
+		@GetMapping("/ingredientiUtente")
+		public String getIngredientiUtente(Model model) {
+			List<Ingrediente> ingredienti = ingredienteService.findAll();
+			model.addAttribute("ingredienti", ingredienti);
+			return "ingredientiUtente.html";
+		}
 	
 	@GetMapping("/ingredienteForm")
 	public String ingredienteForm(Model model) {

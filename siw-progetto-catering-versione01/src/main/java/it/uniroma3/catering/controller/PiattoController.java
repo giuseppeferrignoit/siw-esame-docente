@@ -57,7 +57,7 @@ public class PiattoController {
 			model.addAttribute("piatto", piatto);
 			model.addAttribute("ingredientiAssenti", this.ingredienteService.findIngredientiNotInPiatto(piatto));
 			// Ogni metodo ritorna la stringa col nome della vista successiva
-			// se NON ci sono errori si va alla form di visualizzazione dati inseriti
+			// se NON ci sono errori si va alla pagina di visualizzazione dati inseriti
 			return "addIngredientiToPiatto.html"; 
 		}
 		else {
@@ -132,9 +132,19 @@ public class PiattoController {
 		// id è una variabile associata al path
 		Piatto piatto = piattoService.findById(id);
 		model.addAttribute("piatto", piatto);
-		// ritorna la form con i dati dell'entità richiesta
+		// ritorna la pagina con i dati dell'entità richiesta
 		return "piatto.html";
 	}
+	
+	// richiede un singolo chef tramite id
+		@GetMapping("/piattoUtente/{id}")
+		public String getPiattoUtente(@PathVariable("id")Long id, Model model) {
+			// id è una variabile associata al path
+			Piatto piatto = piattoService.findById(id);
+			model.addAttribute("piatto", piatto);
+			// ritorna la pagina con i dati dell'entità richiesta
+			return "piattoUtente.html";
+		}
 
 	// richiede tutti i piatti, non c'è id
 	@GetMapping("/piatti")
@@ -143,6 +153,14 @@ public class PiattoController {
 		model.addAttribute("piatti", piatti);
 		return "piatti.html";
 	}
+	
+	// richiede tutti i piatti per utente semplice, non c'è id
+		@GetMapping("/piattiUtente")
+		public String getPiattiUtente(Model model) {
+			List<Piatto> piatti = piattoService.findAll();
+			model.addAttribute("piatti", piatti);
+			return "piattiUtente.html";
+		}
 
 	@GetMapping("/piattoForm")
 	public String piattoForm(Model model) {

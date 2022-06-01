@@ -18,8 +18,8 @@
 				(<span th:text="${buffet.descrizione}">Descrizione</span>)?
 				
 				<p>
-					<a th:href="@{'/confermaDeleteBuffet' + '/' + ${buffet.id}}">CONFERMA</a>
-					<a th:href="@{'/buffets'}">ANNULLA</a>
+					<a th:href="@{'/confermaDeleteBuffet' + '/' + ${buffet.id}}"><strong class="conferma">CONFERMA</strong></a>
+					<a th:href="@{'/buffets'}"><strong class="annulla">ANNULLA</strong></a>
 				</p>
 			</h4>
 		</div>
