@@ -7,7 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Credenziali;
 import it.uniroma3.catering.repository.CredentialsRepository;
 

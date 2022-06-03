@@ -13,34 +13,47 @@
 	</header>
 	
 	<div class="sezione">
-	
 		<p>
-			<span >Nome buffet: </span>
+			<span ><strong>Nome buffet: </strong></span>
 			<span th:text="${buffet.nome}">Buffet generico</span>
-			<span>  -  Descrizione buffet: </span>
+			<span><strong>  -  Descrizione buffet: </strong></span>
 			<span  th:text="${buffet.descrizione}">Descrizione generica</span>
-			<span>  -  Chef buffet: </span>
+			<span><strong>  -  Chef buffet: </strong></span>
 			<span th:text="${buffet.chef}">Id chef generico</span>
 		</p>
-		
-	<div th:if="${!buffet.piatti.empty}">Piatti già presenti nel buffet:
-		<ul>
-			<li th:each="piatto: ${buffet.piatti}">
-				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
-				   th:text="${piatto.nome}">Piatto</a>
-			</li>	   	
-		</ul>
 	</div>
-		
-	<div th:if="${!piattiAssenti.empty}">Vuoi aggiungere un piatto al buffet?</div>
-		<ul>
-			<li th:each="piatto: ${piattiAssenti}">
+	
+	<div class="sezione">
+		<div th:if="${!buffet.piatti.empty}">Piatti già presenti nel buffet:
+			<ul>
+				<li th:each="piatto: ${buffet.piatti}">
 				<p class="desc">
-					<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
-					<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + '/' + ${piatto.id}}"><strong class="conferma">Aggiungi al buffet</strong></a>
-				</p>
-			</li>	   	
-		</ul>
+							<span>
+								<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+								   th:text="${piatto.nome}">Piatto</a>
+							</span>
+							<span>
+							    <a href="#" th:href="@{'/updatePiatto' + '/' + ${piatto.id}}"><strong class="modifica">MODIFICA</strong></a> 
+							</span>
+							<span>
+								<a href="#" th:href="@{'/deletePiatto' + '/' + ${piatto.id}}"><strong class="elimina">ELIMINA</strong></a> 
+							</span>
+						</p>
+				</li>	   	
+			</ul>
+		</div>
+	</div>
+	<div class="sezione">
+		<div th:if="${!piattiAssenti.empty}">Vuoi aggiungere un piatto al buffet?</div>
+			<ul>
+				<li th:each="piatto: ${piattiAssenti}">
+					<p class="desc">
+						<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
+						<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + '/' + ${piatto.id}}"><strong class="conferma">Aggiungi al buffet</strong></a>
+					</p>
+				</li>	   	
+			</ul>
+		</div>
 	</div>
 	
 	<div class="sezione">

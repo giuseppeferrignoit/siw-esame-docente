@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 import static it.uniroma3.catering.model.Credenziali.ADMIN_ROLE;
-//import static it.uniroma3.siw.spring.model.Credentials.DEFAULT_ROLE;
+//import static it.uniroma3.catering.model.Credenziali.DEFAULT_ROLE;
 
 
 /**
@@ -72,6 +72,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
+                
     }
 
     /**

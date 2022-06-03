@@ -21,11 +21,16 @@
 			<span><strong>  -  Nazionalità chef: </strong></span>
 			<span  th:text="${chef.nazionalita}">Nazionalita generica</span>
 		</p>
-		<p><a th:href="@{'/chef' + '/' + ${chef.id} + '/' + 
-				'nuovoBuffet'}" href="#">Inserisci nuovo buffet</a>
+	</div>
+	
+	<div class="sezione">
+		<p>
+			<a th:href="@{'/chef' + '/' + ${chef.id} + '/' + 
+				'nuovoBuffet'}" href="#"><strong class="conferma">Inserisci nuovo buffet</strong></a>
 		</p>
-		<p><a th:href="@{'/chef' + '/' + ${chef.id} + '/' + 
-				'buffets'}" href="#">Consulta buffet disponibili</a>
+		<p>
+			<a th:href="@{'/chef' + '/' + ${chef.id} + '/' + 
+				'buffets'}" href="#"><strong class="conferma">Consulta buffet disponibili</strong></a>
 		</p>
 	</div>
 

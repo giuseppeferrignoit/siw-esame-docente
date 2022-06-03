@@ -6,4 +6,5 @@ import it.uniroma3.catering.model.Utente;
 
 public interface UserRepository extends CrudRepository<Utente, Long> {
 
+
 }

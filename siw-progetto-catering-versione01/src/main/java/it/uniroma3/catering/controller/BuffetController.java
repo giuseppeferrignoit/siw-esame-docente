@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.catering.model.Buffet;
+import it.uniroma3.catering.model.Chef;
 import it.uniroma3.catering.model.Piatto;
 import it.uniroma3.catering.service.BuffetService;
 import it.uniroma3.catering.service.ChefService;
@@ -135,16 +136,16 @@ public class BuffetController {
 		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
 		model.addAttribute("piatti", this.piattoService.findPiattiInBuffet(buffet));
-		return "buffet.html"; // ritorna la pagina con i dati dell'entità richiesta
+		return "buffet.html"; // ritorna la form con i dati dell'entità richiesta
 	}
 	
-	// richiede un singolo buffet tramite id per l'utente semplice
+	// richiede un singolo buffet tramite id, per l'utente semplice
 		@GetMapping("/buffetUtente/{id}")
 		public String getBuffetUtente(@PathVariable("id") Long id, Model model) { // id è una variabile associata al path
 			Buffet buffet = buffetService.findById(id);
 			model.addAttribute("buffet", buffet);
 			model.addAttribute("piatti", this.piattoService.findPiattiInBuffet(buffet));
-			return "buffetUtente.html"; // ritorna la pagina con i dati dell'entità richiesta
+			return "buffetUtente.html"; // ritorna la form con i dati dell'entità richiesta
 		}
 
 	// richiede tutti i buffets, non c'è id
@@ -155,6 +156,7 @@ public class BuffetController {
 		return "buffets.html";
 	}
 	
+	
 	// richiede tutti i buffets per l'utente semplice, non c'è id
 		@GetMapping("/buffetsUtente")
 		public String getBuffetsUtente(Model model) {
@@ -162,7 +164,7 @@ public class BuffetController {
 			model.addAttribute("buffets", buffets);
 			return "buffetsUtente.html";
 		}
-
+	
 
 	// crea un nuovo buffet associato allo chef passato nel path
 	@GetMapping("/chef/{idChef}/nuovoBuffet")

@@ -9,7 +9,7 @@
 
 	<body>
 	<header> 
-		<div id="titolo"><strong class="titolo">Dettagli buffet</strong></div>
+		<div id="titolo"><strong class="titolo">Dettagli piatti del buffet</strong></div>
 	</header>
 	
 	<div class="sezione">	
@@ -36,7 +36,7 @@
 						</span>
 						<span>
 							<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + 
-								'/removePiatto' +'/' + ${piatto.id}}"><strong class="elimina">ELIMINA</strong></a>
+								'/confermaDeletePiatto' +'/' + ${piatto.id}}"><strong class="elimina">ELIMINA</strong></a>
 						</span>
 					</p>
 				</li>	   	
