@@ -3,7 +3,7 @@
 
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
-		<title>Elenco buffet</title>
+		<title>Elenco dei buffet</title>
 		<link rel="stylesheet" href="../elenchi.css"/>  
 	</head> 
 	
@@ -22,10 +22,10 @@
 							   th:text="${buffet.nome}">Buffet</a>
 						</span>
 						<span>
-							<a href="#" th:href="@{'/updateBuffet' + '/' + ${buffet.id}}"><strong>MODIFICA</strong></a> 
+							<a href="#" th:href="@{'/updateBuffet' + '/' + ${buffet.id}}"><strong class="modifica">MODIFICA</strong></a> 
 						</span>
 						<span>
-							<a href="#" th:href="@{'/deleteBuffet' + '/' + ${buffet.id}}"><strong>ELIMINA</strong></a> 
+							<a href="#" th:href="@{'/deleteBuffet' + '/' + ${buffet.id}}"><strong  class="elimina">ELIMINA</strong></a> 
 						</span>
 					</p>
 				</li>
