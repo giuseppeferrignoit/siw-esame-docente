@@ -109,7 +109,7 @@ public class IngredienteController {
 	
 	// METODI GET
 
-	// richiede un singolo chef tramite id
+	// richiede un singolo ingrediente tramite id
 	@GetMapping("/ingrediente/{id}")
 	public String getIngrediente(@PathVariable("id")Long id, Model model) {
 		// id è una variabile associata al path
@@ -140,4 +140,22 @@ public class IngredienteController {
 		model.addAttribute("ingrediente", new Ingrediente());
 		return "ingredienteForm.html";
 	}
+	
+	/*
+	//richiede tutti i piatti in cui è presente l'ingrediente passato nel path
+		@GetMapping("/ingrediente/{id}/piatti")
+		public String getPiatti(@Valid @PathVariable("id") Long id, Model model) {
+			Ingrediente ingrediente = ingredienteService.findById(id);
+			model.addAttribute("ingredienti", piattoService.findAllByIngrediente(ingrediente));
+			return "ingredienti.html";
+		}
+		
+		//richiede tutti i piatti, per utente semplice, in cui è presente l'ingrediente passato nel path
+		@GetMapping("/ingrediente/{id}/piatti")
+		public String getPiattiUtente(@Valid @PathVariable("id") Long id, Model model) {
+			Ingrediente ingrediente = ingredienteService.findById(id);
+			model.addAttribute("ingredienti", piattoService.findAllByIngrediente(ingrediente));
+			return "ingredientiUtente.html";
+		}
+		*/
 }

@@ -12,30 +12,43 @@
 		<div id="titolo"><strong class="titolo">Catering SRL - Inserimento dati buffet</strong></div>
 	</header>
 	
-	<div class="sezione">
-
-		<form th:action="@{'/chef' + '/' + ${chef.id} + '/' + 'buffet'}" method="POST" th:object="${buffet}">
+	<section>
+			<div class="flex-container">
+			
+				<div class="flex-dati">
 	
-			<div th:if="${#fields.hasGlobalErrors()}">
-	    		<p 	th:each="err : ${#fields.globalErrors()}" 
-	  				th:text="${err}">ERRORE GENERICO</p> 
-	  		</div>
-			<div>
-				<span>Nome: </span>
-				<span><input type="text" th:field="*{nome}"/></span>
-				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+					<div class="sezione">
+						<form th:action="@{'/chef' + '/' + ${chef.id} + '/' + 'buffet'}" method="POST" th:object="${buffet}">
+					
+							<div th:if="${#fields.hasGlobalErrors()}">
+					    		<p 	th:each="err : ${#fields.globalErrors()}" 
+					  				th:text="${err}">ERRORE GENERICO</p> 
+					  		</div>
+							<div>
+								<span>Nome: </span>
+								<span><input type="text" th:field="*{nome}"/></span>
+								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+							</div>
+							<div>
+								<span>Descrizione: </span>
+								<span><input type="text" th:field="*{descrizione}"/></span>		
+								<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+							</div>
+							<div>
+								<button type="submit"><strong class="bottone">Conferma nuovo buffet</strong></button>
+							</div> 
+						</form>
+					</div>
+				</div>
+				<div class="flex-foto">
+					<div class="fotografia">
+						<img style="border: 3px solid green"  src="../../buffet_cinese.jpg" alt="Image" height="300" width="360">
+					</div>
+				</div>
+				
 			</div>
-			<div>
-				<span>Descrizione: </span>
-				<span><input type="text" th:field="*{descrizione}"/></span>		
-				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
-			</div>
-			<div>
-				<button type="submit">Conferma nuovo buffet</button>
-			</div> 
-		</form>
-		
-	</div>
+			
+	</section>
 	
 	<div class="sezione">
 		<a href="/"><strong class="top">Home</strong></a>

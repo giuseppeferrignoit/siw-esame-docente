@@ -63,6 +63,7 @@ public class Buffet {
 
 	public void removePiatto(Piatto piatto) {
 		this.getPiatti().remove(piatto);
+		piatto.setBuffet(null);
 	}
 
 	public Long getId() {

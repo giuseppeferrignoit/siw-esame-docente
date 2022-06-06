@@ -3,24 +3,46 @@
 
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
-		<title>Dettagli piatto</title>
-		<link rel="stylesheet" href="../dettagli.css"/>  
+		<title>Dettagli piatto - vista admin</title>
+		<link rel="stylesheet" href="../../dettagli.css"/>  
 	</head> 
 
 	<body>
 		<header> 
-			<div id="titolo"><strong class="titolo"> Dettagli piatto e ingredienti</strong></div>
+			<div id="titolo"><strong class="titolo">Dettagli piatto e ingredienti</strong></div>
 		</header>
-	
-		<div class="sezione">
-			<span ><strong>Nome piatto: </strong></span>
-			<span th:text="${piatto.nome}">Nome generico</span>
-			<span><strong>  -  Descrizione piatto: </strong></span>
-			<span  th:text="${piatto.descrizione}">Descrizione generica</span>
-		</div>
 		
-		<div class="sezione">
-			<p th:if="${!piatto.ingredienti.empty}">Ingredienti presenti nel piatto:
+		<section>
+			<div class="flex-container">
+				<div class="flex-dati">
+	
+					<div class="sezione">
+						<p>
+							<span ><strong>Nome piatto: </strong></span>
+							<span th:text="${piatto.nome}">Nome generico</span>
+						</p>
+						<p>
+							<span><strong>Descrizione piatto: </strong></span>
+							<span  th:text="${piatto.descrizione}">Descrizione generica</span>
+						</p>
+					</div>
+					
+				</div>
+				
+				<div class="flex-foto">
+					<div class="fotografia">
+						<img style="border: 3px solid green"  src="../piatto.jpg" alt="Image" height="300" width="360">
+					</div>
+				</div>	
+				
+			</div>
+		</section>
+		
+		<div th:if="${!piatto.ingredienti.empty}">
+			<div class="sezione">
+					<strong>INGREDIENTI PRESENTI NEL PIATTO:</strong>
+			</div>
+			<div class="sezione">
 				<ul>
 					<li th:each="ingrediente: ${piatto.ingredienti}">
 						<p class="desc">
@@ -35,10 +57,9 @@
 						</p>
 					</li>	
 				</ul>
-			</p>
+			</div>
+			
 		</div>
-		
-		
 		
 		<div class="sezione">
 			<a href="/"><strong class="top">Home</strong></a>

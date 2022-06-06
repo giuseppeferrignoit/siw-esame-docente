@@ -33,11 +33,11 @@ public class CredentialsService {
 	}
 		
     @Transactional
-    public Credenziali saveCredentials(Credenziali credentials) {
-        credentials.setRole(Credenziali.DEFAULT_ROLE);
-        //credentials.setRole(Credenziali.ADMIN_ROLE);
-        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
-        return this.credentialsRepository.save(credentials);
+    public Credenziali saveCredentials(Credenziali credenziali) {
+    	credenziali.setRole(Credenziali.DEFAULT_ROLE);
+        //credenziali.setRole(Credenziali.ADMIN_ROLE);
+        credenziali.setPassword(this.passwordEncoder.encode(credenziali.getPassword()));
+        return this.credentialsRepository.save(credenziali);
     }
     
  // Metodo che risponde ad una validazione del Validator

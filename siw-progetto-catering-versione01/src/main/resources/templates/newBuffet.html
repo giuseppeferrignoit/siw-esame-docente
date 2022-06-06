@@ -9,7 +9,7 @@
 	 
 	<body> 
 	<header> 
-		<div id="titolo"><strong class="titolo">Inserimento dati nuovo buffet</strong></div>
+		<div id="titolo"><strong class="titolo">Inserimento dati di un nuovo buffet</strong></div>
 	</header>
     	
     <div class="sezione">
@@ -24,14 +24,14 @@
 						   th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
 					</span>  
 					<span> 
-						<a href="#" th:href="@{'/chef' + '/' + ${chef.id} + '/' + 'nuovoBuffet'}">SELEZIONA</a>
+						<a href="#" th:href="@{'/chef' + '/' + ${chef.id} + '/' + 'nuovoBuffet'}"><strong class="conferma">SELEZIONA</strong></a>
 					</span>
 				</p>
 			</li>	   	
 		</ul>
     </div>
 	<div class="sezione">
-		<a href="#" th:href="@{'/chefForm'}"><strong class="top">Inserisci un nuovo chef</strong></a>
+		<a href="#" th:href="@{'/chefForm'}"><strong class="top"><strong class="conferma">INSERISCI UN NUOVO CHEF</strong></a>
 	</div>
 	<div class="sezione">
 		<a href="/"><strong class="top">Home</strong></a>

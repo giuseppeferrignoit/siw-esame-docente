@@ -12,15 +12,34 @@
 		<div id="titolo"><strong class="titolo">Dettagli ingrediente</strong></div>
 	</header>
 	
-	<div class="sezione">
-		<span ><strong>Nome ingrediente: </strong></span>
-		<span th:text="${ingrediente.nome}">Nome generico</span>
-		<span><strong>  -  Origine ingrediente: </strong></span>
-		<span  th:text="${ingrediente.origine}">Origine generica</span>
-		<span><strong>  -  Descrizione ingrediente: </strong></span>
-		<span  th:text="${ingrediente.descrizione}">Descrizione generica</span>
-   	</div>
-	
+	<section>
+			<div class="flex-container">
+			
+				<div class="flex-dati">
+					<div class="sezione">
+						<p>
+							<span ><strong>Nome ingrediente: </strong></span>
+							<span th:text="${ingrediente.nome}">Nome generico</span>
+						</p>
+						<p>
+							<span><strong>Origine ingrediente: </strong></span>
+							<span  th:text="${ingrediente.origine}">Origine generica</span>
+						</p>
+						<p>
+							<span><strong>Descrizione ingrediente: </strong></span>
+							<span  th:text="${ingrediente.descrizione}">Descrizione generica</span>
+						</p>
+				   	</div>
+				</div>
+				<div class="flex-foto">
+					<div class="fotografia">
+						<img style="border: 3px solid green"  src="../olio.jpg" alt="Image" height="300" width="360">
+					</div>
+				</div>
+				
+			</div>
+	</section>
+
 	<div class="sezione">
 		<a href="/"><strong class="top">Home</strong></a>
 	</div>

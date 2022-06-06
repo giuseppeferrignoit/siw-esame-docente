@@ -4,12 +4,12 @@
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
 		<title>Aggiungi ingredienti al piatto</title>
-		<link rel="stylesheet" href="../elenchi.css"/>  
+		<link rel="stylesheet" href="/../elenchi.css"/>  
 	</head> 
 
 	<body>
 		<header> 
-			<div id="titolo"><strong class="titolo"> Dettagli piatto e ingredienti</strong></div>
+			<div id="titolo"><strong class="titolo"> Dettagli piatto con gli ingredienti</strong></div>
 		</header>
 	
 		<div class="sezione">
@@ -54,9 +54,10 @@
 						</p>
 					</li>	   	
 				</ul>
+				
 			<p>
 				<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/nuovoIngrediente'}">
-								<strong class="conferma">Crea un nuovo ingrediente</strong></a>
+								<strong class="conferma">CREA UN NUOVO INGREDIENTE</strong></a>
 			</p>
 		</div>
 	
