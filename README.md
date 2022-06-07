@@ -2,11 +2,10 @@
 versione completa del compito di esame sui casi d'uso 
 di una società di catering
 
-situazione al 31 maggio 2022
+situazione al 7 giugno 2022
 
-- L'applicazione è completa ed in fase di test.
+- L'applicazione è completa, effettuate diverse sessioni di test e update di bug.
 
 1) Non sono ancora riuscito a sostituire la testata della home di security
-2) Non è stato fatto, per semplicità, il controllo del doppio inserimento di un ingrediente nel piatto.
-3) Alcune imperfezioni da risolvere nell'interfaccia
-4) La pagina piatto.html (dettagli piatto)a volte perde il css
+2) Non riesco a collegare il link "home" di fine pagina alla pagina html "home",
+riesco solo a rimandare al login iniziale.
