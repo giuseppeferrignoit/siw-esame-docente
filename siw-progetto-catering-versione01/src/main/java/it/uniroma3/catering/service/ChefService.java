@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Chef;
 import it.uniroma3.catering.repository.ChefRepository;
 
@@ -34,6 +35,12 @@ public class ChefService {
 		chefRepository.deleteById(id);
 	}
 	
+	@Transactional
+	public void addBuffetToChef(Chef chef, Buffet buffet) {
+		chef.getBuffet().add(buffet);
+		buffet.setChef(chef);
+	}
+	
 	public Chef findById (Long id) {
 		return chefRepository.findById(id).get();
 	}
@@ -48,8 +55,8 @@ public class ChefService {
 	
 	// Metodo che risponde ad una validazione del Validator
 	public boolean alreadyExists(Chef chef) {
-		return chefRepository.existsByNomeAndCognomeAndNazionalita
-				(chef.getNome(), chef.getCognome(), chef.getNazionalita());
+		return chefRepository.existsByNomeAndCognome
+				(chef.getNome(), chef.getCognome());
 	}
 }
 

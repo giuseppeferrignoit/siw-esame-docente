@@ -56,7 +56,17 @@ public class AuthenticationController {
         }
         return "home";
     }
-	
+    
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String paginaMenu(Model model) {
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credenziali credenziali = credentialsService.getCredentials(userDetails.getUsername());
+    	if (credenziali.getRole().equals(Credenziali.ADMIN_ROLE)) {
+            return "admin/home";
+        }
+        return "home";
+    }
+    
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") Utente utente,
                  BindingResult userBindingResult,

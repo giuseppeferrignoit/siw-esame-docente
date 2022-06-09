@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import it.uniroma3.catering.model.Chef;
 
 public interface ChefRepository extends CrudRepository<Chef, Long> {
-	boolean existsByNomeAndCognomeAndNazionalita(String nome, String cognome, String nazionalita);
+	boolean existsByNomeAndCognome(String nome, String cognome);
 }

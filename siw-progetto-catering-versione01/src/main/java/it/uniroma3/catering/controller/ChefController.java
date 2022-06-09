@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Chef;
 import it.uniroma3.catering.service.BuffetService;
 import it.uniroma3.catering.service.ChefService;
@@ -113,12 +114,12 @@ public class ChefController {
 	}
 	
 	// richiede tutti gli chef per l'utente semplice, non c'è id
-		@GetMapping("/chefsUtente")
-		public String getChefsUtente(Model model) {
-			List<Chef> chefs = chefService.findAll();
-			model.addAttribute("chefs", chefs);
-			return "chefsUtente.html";
-		}
+	@GetMapping("/chefsUtente")
+	public String getChefsUtente(Model model) {
+		List<Chef> chefs = chefService.findAll();
+		model.addAttribute("chefs", chefs);
+		return "chefsUtente.html";
+	}
 	
 	@GetMapping("/chefForm")
 	public String chefForm(Model model) {
@@ -135,10 +136,10 @@ public class ChefController {
 	}
 	
 	//richiede tutti i buffet dello chef passato nel path per utenti semplici
-		@GetMapping("/chefUtente/{id}/buffetsUtente")
-		public String getBuffetUtente(@Valid @PathVariable("id") Long id, Model model) {
-			Chef chef = chefService.findById(id);
-			model.addAttribute("buffets", buffetService.findAllByChef(chef));
-			return "buffetsUtente.html";
-		}
+	@GetMapping("/chefUtente/{id}/buffetsUtente")
+	public String getBuffetUtente(@Valid @PathVariable("id") Long id, Model model) {
+		Chef chef = chefService.findById(id);
+		model.addAttribute("buffets", buffetService.findAllByChef(chef));
+		return "buffetsUtente.html";
+	}
 }
