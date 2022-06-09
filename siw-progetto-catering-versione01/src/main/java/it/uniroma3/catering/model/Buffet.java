@@ -33,7 +33,7 @@ public class Buffet {
 	@OneToMany(mappedBy="buffet", cascade = CascadeType.ALL)
 	private List<Piatto> piatti;
 	
-	//-----------------------------------------
+	//----------Getter & Setter ----------------
 	
 	public Buffet() {
 		this.piatti = new ArrayList<Piatto>();

@@ -68,12 +68,10 @@ public class BuffetController {
 			model.addAttribute("piattiAssenti", this.piattoService.findPiattiNotInBuffet(buffet));
 
 			// Ogni metodo ritorna la stringa col nome della vista successiva
-			// se NON ci sono errori si va alla form di visualizzazione dati inseriti
 			return "addPiattiToBuffet.html"; 
 		}
 		else {
 			model.addAttribute("buffet", buffet);
-			// se ci sono errori si rimanda alla form di inserimento
 			return "buffet.html"; 
 		}
 	}
@@ -136,7 +134,7 @@ public class BuffetController {
 		Buffet buffet = buffetService.findById(id);
 		model.addAttribute("buffet", buffet);
 		model.addAttribute("piatti", this.piattoService.findPiattiInBuffet(buffet));
-		return "buffet.html"; // ritorna la form con i dati dell'entità richiesta
+		return "buffet.html"; // ritorna la pagina con i dati dell'entità richiesta
 	}
 	
 	// richiede un singolo buffet tramite id, per l'utente semplice
@@ -145,7 +143,7 @@ public class BuffetController {
 			Buffet buffet = buffetService.findById(id);
 			model.addAttribute("buffet", buffet);
 			model.addAttribute("piatti", this.piattoService.findPiattiInBuffet(buffet));
-			return "buffetUtente.html"; // ritorna la form con i dati dell'entità richiesta
+			return "buffetUtente.html"; // ritorna la pagina con i dati dell'entità richiesta
 		}
 
 	// richiede tutti i buffets, non c'è id

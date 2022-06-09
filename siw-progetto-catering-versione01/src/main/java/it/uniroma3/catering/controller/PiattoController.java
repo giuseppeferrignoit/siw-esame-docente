@@ -66,6 +66,8 @@ public class PiattoController {
 			return "piattoForm.html"; 
 		}
 	}
+	
+	// METODI PER GLI INGREDIENTI DEI PIATTI
 
 	//aggiunge l'ingrediente il cui id è passato nel path al piatto 
 	@GetMapping("/piatto/{idPiatto}/{idIngrediente}")
