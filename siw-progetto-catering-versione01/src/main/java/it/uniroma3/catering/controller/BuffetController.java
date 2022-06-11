@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.catering.model.Buffet;
 import it.uniroma3.catering.model.Chef;
+import it.uniroma3.catering.model.Ingrediente;
 import it.uniroma3.catering.model.Piatto;
 import it.uniroma3.catering.service.BuffetService;
 import it.uniroma3.catering.service.ChefService;
@@ -87,6 +88,14 @@ public class BuffetController {
 		model.addAttribute("piattiAssenti", this.piattoService.findPiattiNotInBuffet(buffet));
 		return "addPiattiToBuffet";
 
+	}
+	
+	//Creazione di un nuovo piatto da aggiungere al buffet il cui id è passato nel path
+	@GetMapping("/buffet/{id}/nuovoPiatto")
+	public String aggiungiPiatto(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet", this.buffetService.findById(id));
+		model.addAttribute("piatto", new Piatto());
+		return "piattoForm.html";
 	}
 
 	// METODI PER DELETE

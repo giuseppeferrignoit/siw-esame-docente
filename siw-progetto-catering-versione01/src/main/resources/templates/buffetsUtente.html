@@ -12,19 +12,25 @@
 		<div id="titolo"><strong class="titolo">ELENCO DEI BUFFET A SISTEMA</strong></div>
 	</header>
 	
-	<div class="sezione">	
-		<p>
-			<ul>
-				<li th:each="buffet: ${buffets}">
-					<p class="desc">
-						<span>
-							<a href="buffetUtente.html" th:href="@{'/buffetUtente' + '/' + ${buffet.id}}"
-							   th:text="${buffet.nome}">Buffet</a>
-						</span>
-					</p>
-				</li>
-			</ul>
-		</p>
+	<div th:if="${!buffets.empty}">
+		<div class="sezione">	
+			<p>
+				<ul>
+					<li th:each="buffet: ${buffets}">
+						<p class="desc">
+							<span>
+								<a href="buffetUtente.html" th:href="@{'/buffetUtente' + '/' + ${buffet.id}}"
+								   th:text="${buffet.nome}">Buffet</a>
+							</span>
+						</p>
+					</li>
+				</ul>
+			</p>
+		</div>
+	</div>
+	
+	<div class="sezione" th:unless="${!buffets.empty}">
+		<h4>NON CI SONO BUFFET ANCORA DISPONIBILI! CREARNE UNO</h4>
 	</div>
 	
 	<div class="sezione">

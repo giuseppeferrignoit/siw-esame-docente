@@ -12,25 +12,38 @@
 		<div id="titolo"><strong class="titolo">ELENCO DEI PIATTI A SISTEMA</strong></div>
 	</header>
 	
-	<div class="sezione">
-		<p>
-			<ul>
-				<li th:each="piatto: ${piatti}">
-					<p class="desc">
-						<span>
-							<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
-							   th:text="${piatto.nome}">Piatto</a>
-						</span>
-						<span>
-						    <a href="#" th:href="@{'/updatePiatto' + '/' + ${piatto.id}}"><strong class="modifica">MODIFICA</strong></a> 
-						</span>
-						<span>
-							<a href="#" th:href="@{'/deletePiatto' + '/' + ${piatto.id}}"><strong class="elimina">ELIMINA</strong></a> 
-						</span>
-					</p>
-				</li>	   	
-			</ul>
-		</p>
+	<div th:if="${!piatti.empty}">
+		<div class="sezione">
+			<p>
+				<ul>
+					<li th:each="piatto: ${piatti}">
+						<p class="desc">
+							<span>
+								<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"
+								   th:text="${piatto.nome}">Piatto</a>
+							</span>
+							<span>
+							    <a href="#" th:href="@{'/updatePiatto' + '/' + ${piatto.id}}"><strong class="modifica">MODIFICA</strong></a> 
+							</span>
+							<span>
+								<a href="#" th:href="@{'/deletePiatto' + '/' + ${piatto.id}}"><strong class="elimina">ELIMINA</strong></a> 
+							</span>
+						</p>
+					</li>	   	
+				</ul>
+			</p>
+		</div>
+	</div>
+	
+	<div class = "sezione" th:unless="${!piatti.empty}">
+			<h4>NON CI SONO PIATTI ANCORA DISPONIBILI! CREARNE UNO</h4>
+	</div>
+	
+	<div class="sezione">	
+		<h4>CREA UN NUOVO PIATTO</h4>
+		<div class="itemMain">
+			<a th:href="@{/piattoForm}" href="#"><strong class="conferma">Inserimento nuovo piatto</strong></a>
+		</div>
 	</div>
 	
 	<div class="sezione">

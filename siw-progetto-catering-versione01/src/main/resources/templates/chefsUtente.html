@@ -12,19 +12,25 @@
 		<div id="titolo"><strong class="titolo">ELENCO DEGLI CHEF A SISTEMA</strong></div>
 	</header>
 	
-	<div class="sezione">	
-		<p>
-			<ul>
-				<li th:each="chef: ${chefs}">
-					<p class="desc">
-						<span>
-							<a href="chefUtente.html" th:href="@{'/chefUtente' + '/' + ${chef.id}}"
-					   		th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-					   	</span>
-					</p>
-				</li>	   	
-			</ul>
-		</p>
+	<div th:if="${!chefs.empty}">
+		<div class="sezione">	
+			<p>
+				<ul>
+					<li th:each="chef: ${chefs}">
+						<p class="desc">
+							<span>
+								<a href="chefUtente.html" th:href="@{'/chefUtente' + '/' + ${chef.id}}"
+						   		th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+						   	</span>
+						</p>
+					</li>	   	
+				</ul>
+			</p>
+		</div>
+	</div>
+	
+	<div class = "sezione" th:unless="${!chefs.empty}">
+			<h4>NON CI SONO CHEF ANCORA DISPONIBILI! CREARNE UNO</h4>
 	</div>
 	
 	<div class="sezione">

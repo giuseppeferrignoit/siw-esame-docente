@@ -83,7 +83,7 @@ public class PiattoController {
 
 	}
 	
-	//inizia la creazione di un nuovo ingrediente da aggiungere al piatto il cui id è passato nel path
+	//Creazione di un nuovo ingrediente da aggiungere al piatto il cui id è passato nel path
 	@GetMapping("/piatto/{id}/nuovoIngrediente")
 	public String creaIngrediente(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("piatto", this.piattoService.findById(id));

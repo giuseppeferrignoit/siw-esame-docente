@@ -9,26 +9,40 @@
 	
 	<body>
 	<header> 
-		<div id="titolo"><strong class="titolo">ELENCO DEGLI CHEF A SISTEMA</strong></div>
+		<div id="titolo"><strong class="titolo">ELENCO DEGLI CHEF ABILITATI</strong></div>
 	</header>
 	
-	<div class="sezione">	
-		<p>
-			<ul>
-				<li th:each="chef: ${chefs}">
-					<p class="desc">
-						<span>
-							<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}"
-					   		th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-					   	</span>
-						<span>
-							<a href="#" th:href="@{'/deleteChef' +'/' + ${chef.id}}"><strong class="elimina">ELIMINA</strong></a> 
-						</span>
-					</p>
-				</li>	   	
-			</ul>
-		</p>
+	<div th:if="${!chefs.empty}">
+		<div class="sezione">	
+			<p>
+				<ul>
+					<li th:each="chef: ${chefs}">
+						<p class="desc">
+							<span>
+								<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}"
+						   		th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+						   	</span>
+							<span>
+								<a href="#" th:href="@{'/deleteChef' +'/' + ${chef.id}}"><strong class="elimina">ELIMINA</strong></a> 
+							</span>
+						</p>
+					</li>	   	
+				</ul>
+			</p>
+		</div>
 	</div>
+	
+	<div class = "sezione" th:unless="${!chefs.empty}">
+			<h4>NON CI SONO CHEF ANCORA DISPONIBILI! CREARNE UNO</h4>
+	</div>
+	
+	<div class="sezione">	
+		<h4>CREA UN NUOVO CHEF</h4>
+		<div class="itemMain">
+			<a th:href="@{/chefForm}" href="#"><strong class="conferma">Inserimento nuovo chef</strong></a>
+		</div>
+	</div>
+	
 	
 	<div class="sezione">
 			<a th:href="@{/home}"><strong class="top">Home</strong></a>

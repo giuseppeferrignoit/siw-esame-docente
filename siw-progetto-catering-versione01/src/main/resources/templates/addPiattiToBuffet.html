@@ -9,7 +9,7 @@
 
 <body>
 	<header> 
-		<div id="titolo"><strong class="titolo"> Dettagli buffet con i piatti</strong></div>
+		<div id="titolo"><strong class="titolo"> Dettagli del buffet con i piatti</strong></div>
 	</header>
 	
 	<div class="sezione">
@@ -22,8 +22,10 @@
 			<span  th:text="${buffet.descrizione}">Descrizione generica</span>
 		</p>
 		<p>
-			<span><strong>Chef buffet: </strong></span>
-			<span th:text="${buffet.chef}">Id chef generico</span>
+			<span ><strong>Nome chef: </strong></span>
+			<span >
+				<a th:text="${buffet.chef}" th:href="@{'/chef' + '/' + ${buffet.chef.id}}">Chef</a>
+			</span>
 		</p>
 	</div>
 	
@@ -55,7 +57,8 @@
 	</div>
 	
 	
-	<div th:if="${!piattiAssenti.empty}">Vuoi aggiungere un piatto al buffet?
+	<div th:if="${!piattiAssenti.empty}">
+		<div class="sezione"><h4>Vuoi aggiungere un piatto al buffet tra quelli disponibili?</h4></div>
 		<div class="sezione">
 			<ul>
 				<li th:each="piatto: ${piattiAssenti}">
@@ -67,10 +70,14 @@
 			</ul>
 		</div>
 		
-		<div class="sezione">
-		<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}"><strong class="conferma">CONFERMA</strong></a>
-		</div>
 		
+	</div>
+	
+	<div class="sezione">
+		<p>
+			<a href="#" th:href="@{'/buffet' + '/' + ${buffet.id} + '/nuovoPiatto'}">
+							<strong class="conferma">CREA UN NUOVO PIATTO</strong></a>
+		</p>
 	</div>
 	
 	<div class="sezione">

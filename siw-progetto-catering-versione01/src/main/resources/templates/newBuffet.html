@@ -11,25 +11,29 @@
 	<header> 
 		<div id="titolo"><strong class="titolo">Inserimento dati di un nuovo buffet</strong></div>
 	</header>
-    	
-    <div class="sezione">
-
-    <p>Seleziona uno tra i seguenti chef oppure inseriscine uno nuovo:</p>
     
-		<ul>
-			<li th:each="chef: ${chefs}">
-				<p class="desc">				
-					<span>
-						<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}"
-						   th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
-					</span>  
-					<span> 
-						<a href="#" th:href="@{'/chef' + '/' + ${chef.id} + '/' + 'nuovoBuffet'}"><strong class="conferma">SELEZIONA</strong></a>
-					</span>
-				</p>
-			</li>	   	
-		</ul>
+    <div th:if="${!chefs.empty}">
+	
+    	<div class="sezione">
+
+    	<p>Seleziona uno tra i seguenti chef oppure inseriscine uno nuovo:</p>
+    
+			<ul>
+				<li th:each="chef: ${chefs}">
+					<p class="desc">				
+						<span>
+							<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}"
+							   th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a>
+						</span>  
+						<span> 
+							<a href="#" th:href="@{'/chef' + '/' + ${chef.id} + '/' + 'nuovoBuffet'}"><strong class="conferma">SELEZIONA</strong></a>
+						</span>
+					</p>
+				</li>	   	
+			</ul>
+    	</div>
     </div>
+    
 	<div class="sezione">
 		<a href="#" th:href="@{'/chefForm'}"><strong class="top"><strong class="conferma">INSERISCI UN NUOVO CHEF</strong></a>
 	</div>

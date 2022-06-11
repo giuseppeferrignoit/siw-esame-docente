@@ -3,7 +3,7 @@
 
 	<head>  	
 		<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
-		<title>Aggiungi ingredienti al piatto</title>
+		<title>Aggiungi ingredienti al piatto - admin</title>
 		<link rel="stylesheet" href="/../elenchi.css"/>  
 	</head> 
 
@@ -20,29 +20,29 @@
 				<span  th:text="${piatto.descrizione}">Descrizione generica</span>
 			</p>
 		</div>
-		
-		<div class="sezione">
-			<p th:if="${!piatto.ingredienti.empty}">Ingredienti presenti nel piatto:
-				<ul>
-					<li th:each="ingrediente: ${piatto.ingredienti}">
-						<p class="desc">
-							<span>
-								<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
-						   		th:text="${ingrediente.nome}">Ingrediente</a>
-						   	</span>
-						   	<span>
-								<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
-									'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
-						   	</span>
-						</p>
-					</li>	
-				</ul>
-			</p>
+							
+		<div th:if="${!piatto.ingredienti.empty}">Ingredienti presenti nel piatto:
+			<div class="sezione">
+					<ul>
+						<li th:each="ingrediente: ${piatto.ingredienti}">
+							<p class="desc">
+								<span>
+									<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+							   		th:text="${ingrediente.nome}">Ingrediente</a>
+							   	</span>
+							   	<span>
+									<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
+										'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
+							   	</span>
+							</p>
+						</li>	
+					</ul>
+			</div>	
 		</div>
 		
 		<div class="sezione">
 			<p >
-				Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi. 
+				<h3>Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi.</h3> 
 				<ul>
 					<li th:each="ingrediente: ${ingredientiAssenti}">
 						<p class="desc">
@@ -59,10 +59,6 @@
 				<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/nuovoIngrediente'}">
 								<strong class="conferma">CREA UN NUOVO INGREDIENTE</strong></a>
 			</p>
-		</div>
-	
-		<div class="sezione">
-			<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}"><strong class="conferma">CONFERMA</strong></a>
 		</div>
 		
 		<div class="sezione">
