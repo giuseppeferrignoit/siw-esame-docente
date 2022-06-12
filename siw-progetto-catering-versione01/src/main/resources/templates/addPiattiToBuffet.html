@@ -16,13 +16,11 @@
 		<p>
 			<span ><strong>Nome buffet: </strong></span>
 			<span th:text="${buffet.nome}">Buffet generico</span>
-		</p>
-		<p>
-			<span><strong>Descrizione buffet: </strong></span>
+		
+			<span><strong> - Descrizione buffet: </strong></span>
 			<span  th:text="${buffet.descrizione}">Descrizione generica</span>
-		</p>
-		<p>
-			<span ><strong>Nome chef: </strong></span>
+		
+			<span ><strong> - Nome chef: </strong></span>
 			<span >
 				<a th:text="${buffet.chef}" th:href="@{'/chef' + '/' + ${buffet.chef.id}}">Chef</a>
 			</span>
@@ -31,12 +29,8 @@
 	
 	
 	<div th:if="${!buffet.piatti.empty}">
-	
 		<div class="sezione">
-			<p><strong>PIATTI PRESENTI NEL BUFFET:</strong></p>
-		</div>
-	
-		<div class="sezione">
+			<h3>Piatti presenti nel buffet:</h3>
 			<ul>
 				<li th:each="piatto: ${buffet.piatti}">
 				<p class="desc">
@@ -58,8 +52,8 @@
 	
 	
 	<div th:if="${!piattiAssenti.empty}">
-		<div class="sezione"><h4>Vuoi aggiungere un piatto al buffet tra quelli disponibili?</h4></div>
 		<div class="sezione">
+			<h3>Vuoi aggiungere un piatto al buffet tra quelli disponibili?</h3>
 			<ul>
 				<li th:each="piatto: ${piattiAssenti}">
 					<p class="desc">

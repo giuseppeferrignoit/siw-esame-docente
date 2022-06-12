@@ -21,28 +21,29 @@
 			</p>
 		</div>
 							
-		<div th:if="${!piatto.ingredienti.empty}">Ingredienti presenti nel piatto:
+		<div th:if="${!piatto.ingredienti.empty}">
 			<div class="sezione">
-					<ul>
-						<li th:each="ingrediente: ${piatto.ingredienti}">
-							<p class="desc">
-								<span>
-									<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
-							   		th:text="${ingrediente.nome}">Ingrediente</a>
-							   	</span>
-							   	<span>
-									<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
-										'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
-							   	</span>
-							</p>
-						</li>	
-					</ul>
+				<h3>Ingredienti presenti nel piatto</h3>
+				<ul>
+					<li th:each="ingrediente: ${piatto.ingredienti}">
+						<p class="desc">
+							<span>
+								<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+						   		th:text="${ingrediente.nome}">Ingrediente</a>
+						   	</span>
+						   	<span>
+								<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + 
+									'/removeIngrediente' +'/' + ${ingrediente.id}}"><strong class="elimina">ELIMINA</strong></a> 
+						   	</span>
+						</p>
+					</li>	
+				</ul>
 			</div>	
 		</div>
 		
 		<div class="sezione">
 			<p >
-				<h3>Aggiungi gli ingredienti al piatto: puoi selezionarli tra quelli esistenti o inserirne di nuovi.</h3> 
+				<h3>Vuoi aggiungere ingredienti al piatto tra quelli disponibili?</h3> 
 				<ul>
 					<li th:each="ingrediente: ${ingredientiAssenti}">
 						<p class="desc">
@@ -54,7 +55,9 @@
 						</p>
 					</li>	   	
 				</ul>
-				
+		</div>
+		
+		<div class="sezione">
 			<p>
 				<a href="#" th:href="@{'/piatto' + '/' + ${piatto.id} + '/nuovoIngrediente'}">
 								<strong class="conferma">CREA UN NUOVO INGREDIENTE</strong></a>
